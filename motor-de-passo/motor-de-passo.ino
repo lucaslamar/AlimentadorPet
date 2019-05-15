@@ -16,6 +16,6 @@ void loop()
 { 
 
  //Gira o motor no sentido anti-horario a 120 graus
- myStepper.step(900); 
+ myStepper.step(0); 
 
 }
