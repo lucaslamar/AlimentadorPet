@@ -1,18 +1,13 @@
-// bibliotecas
-#include <Stepper.h> 
-
 // --- Mapeamento de Hardware ---
 #define led         13                             //led onboard
 #define bomba        7                             //Pino de controle da bomba d'água
 #define echo         8                             //Pino de echo do HC-SR04
 #define trig         9                             //Pino de trigger do HC-SR04
-const int stepsPerRevolution = 500;
 
-Stepper myStepper(stepsPerRevolution, 3,4,5,6); //Inicializa a biblioteca utilizando as portas de 3 a 6 para  ligacao ao motor 
 
 // --- Constantes ---
 #define full_sec     5                             //tempo para encher recipiente (em segundos)
- 
+
 
 // --- Protótipo das Funções Auxiliares ---
 float measureDistance();                      //Função para medir, calcular e retornar a distância em cm
@@ -27,7 +22,6 @@ float dist_cm;                                //Armazena a distância em centím
 short counter = 0x00;                         //Contador auxiliar para interrupção
 short test_Object = 0x00;                     //Verifica se haverá um objeto de fato
 short seconds = 0x00;                         //Tempo de operação da bomba em segundos
-int data = 0;
 
 
 // --- Rotina de Interrupção ---
@@ -90,8 +84,6 @@ void setup()
      pinMode(bomba, OUTPUT);
      pinMode(trig,  OUTPUT);
      pinMode(echo,   INPUT);
-     myStepper.setSpeed(60); //Determina a velocidade inicial do motor 
-     Serial.begin(9600);
      
      
 /*     
@@ -123,7 +115,7 @@ void setup()
 void loop()
 {
    
-  myStepper.step(0); // motor parado
+  
    dist_cm = measureDistance();               //Atualiza distância em centímetros
    
    
@@ -145,35 +137,11 @@ void loop()
    
    } //end else
    
-   delay(65);                                //Leituras a cada 65 ms
-
-
    
-  if(Serial.available() > 0)
-  {
-    Serial.print("A: 600");
-    Serial.print("B: 800");
-    Serial.print("C: 1200"); 
-    
-    data = Serial.read();
-    Serial.print(data);
-    Serial.print("\n");
-
-    if(data == '1')
-    {
-      myStepper.step(600);
-    }
-    else if(data == '2')
-    {
-       myStepper.step(800);
-    }
-
-   else if(data == '3')
-    {
-       myStepper.step(1200);
-    }
-
-  }
+   
+   
+   delay(65);                                 //Leituras a cada 65 ms
+ 
 } //end loop
 
 
