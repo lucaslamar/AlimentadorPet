@@ -10,7 +10,7 @@ Stepper myStepper(stepsPerRevolution, 8,10,9,11);
 void setup() 
 { 
  //Determina a velocidade inicial do motor 
- myStepper.setSpeed(60);
+ myStepper.setSpeed(70);
   Serial.begin(9600);
 }
   

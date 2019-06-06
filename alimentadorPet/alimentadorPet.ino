@@ -4,14 +4,14 @@
 // --- Mapeamento de Hardware ---
 #define led         13                             //led onboard
 #define bomba        7                             //Pino de controle da bomba d'água
-#define echo         8                             //Pino de echo do HC-SR04
-#define trig         9                             //Pino de trigger do HC-SR04
+  #define echo       3                            //Pino de echo do HC-SR04
+#define trig         4                         //Pino de trigger do HC-SR04
 const int stepsPerRevolution = 500;
 
-Stepper myStepper(stepsPerRevolution, 3,4,5,6); //Inicializa a biblioteca utilizando as portas de 3 a 6 para  ligacao ao motor 
+Stepper myStepper(stepsPerRevolution, 8,10,9,11); //Inicializa a biblioteca utilizando as portas de 3 a 6 para  ligacao ao motor 
 
 // --- Constantes ---
-#define full_sec     5                             //tempo para encher recipiente (em segundos)
+#define full_sec     3                           //tempo para encher recipiente (em segundos)
  
 
 // --- Protótipo das Funções Auxiliares ---
