@@ -151,9 +151,9 @@ void loop()
    
   if(Serial.available() > 0)
   {
-    Serial.print("A: 600");
-    Serial.print("B: 800");
-    Serial.print("C: 1200"); 
+    Serial.print("1: 600");
+    Serial.print("2: 800");
+    Serial.print("3: 1200"); 
     
     data = Serial.read();
     Serial.print(data);
